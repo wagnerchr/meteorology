@@ -45,3 +45,28 @@ export async function POST(req: Request) {
         })
     }
 }
+
+export async function DELETE(req: Request) {
+    const { id } = await req.json()
+    try {
+        const card = await prisma.register.delete({
+            where: {
+                id
+            }
+        })
+        return Response.json({
+            message: "OK",
+            card
+        })
+    } catch(err) {
+        return NextResponse.json(
+            {
+                message: "Error",
+                err
+            },
+            {
+                status: 500
+            }
+        )
+    }
+}
