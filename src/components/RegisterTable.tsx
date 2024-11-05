@@ -23,7 +23,7 @@ const RegisterTable: React.FC = () => {
     const totalPages = Math.ceil(registers.length / itemsPerPage);
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto mx-auto w-full  bg-white border border-gray-200 rounded-lg shadow-md p-4 m-8">
             <table className="min-w-full border-collapse border border-gray-200">
                 <thead className="bg-gray-100">
                     <tr>
