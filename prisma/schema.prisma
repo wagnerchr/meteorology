@@ -1,0 +1,21 @@
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model Register {
+    id          Int      @id @default(autoincrement())
+    titulo      String
+    chovendo    Boolean
+    alagamento  Boolean
+    qntChuva    Float
+    temperatura Float
+    umidade     Float
+    umidadeSolo Float
+    vibracao    Float
+    createdAt   DateTime @default(now())
+}
