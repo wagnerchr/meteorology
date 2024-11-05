@@ -30,7 +30,7 @@ const useFetchRegisters = () => {
                 const data = await response.json();
                 setRegisters(data.registers);
             } catch (err) {
-                setError(err.message);
+                setError((err as Error).message);
             } finally {
                 setLoading(false);
             }
