@@ -5,67 +5,64 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend,
-  Filler,
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import useFetchRegisters from '../hooks/useFetchRegisters';
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
-  Legend,
-  Filler
+  Legend
 );
 
-const ChartComponent: React.FC = () => {
+const ChartComponent2: React.FC = () => {
   const { registers, loading, error } = useFetchRegisters();
   const labels = registers.map((_, index) => `Item ${index + 1}`);
+
   const chartData = {
     labels,
     datasets: [
       {
         label: 'Quantidade de Chuva',
         data: registers.map(item => item.qntChuva),
-        fill: true,
-        backgroundColor: 'rgba(75, 192, 192, 0.4)',
+        backgroundColor: 'rgba(75, 192, 192, 0.6)',
         borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1,
       },
       {
         label: 'Temperatura',
         data: registers.map(item => item.temperatura),
-        fill: true,
-        backgroundColor: 'rgba(255, 99, 132, 0.4)',
+        backgroundColor: 'rgba(255, 99, 132, 0.6)',
         borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1,
       },
       {
         label: 'Umidade',
         data: registers.map(item => item.umidade),
-        fill: true,
-        backgroundColor: 'rgba(54, 162, 235, 0.4)',
+        backgroundColor: 'rgba(54, 162, 235, 0.6)',
         borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1,
       },
       {
         label: 'Umidade do Solo',
         data: registers.map(item => item.umidadeSolo),
-        fill: true,
-        backgroundColor: 'rgba(153, 102, 255, 0.4)',
+        backgroundColor: 'rgba(153, 102, 255, 0.6)',
         borderColor: 'rgba(153, 102, 255, 1)',
+        borderWidth: 1,
       },
       {
         label: 'Vibração',
         data: registers.map(item => item.vibracao),
-        fill: true,
-        backgroundColor: 'rgba(255, 206, 86, 0.4)',
+        backgroundColor: 'rgba(255, 206, 86, 0.6)',
         borderColor: 'rgba(255, 206, 86, 1)',
+        borderWidth: 1,
       },
     ],
   };
@@ -87,13 +84,10 @@ const ChartComponent: React.FC = () => {
   if (error) return <p>Erro: {error}</p>;
 
   return (
-    <>
-    <div className='flex justify-center h-auto mb-8 mx-auto w-[800px]  bg-white border border-gray-200 rounded-lg shadow-md p-4 m-8'>
-        <Line data={chartData} options={options} />;
-        </div>
-    </>
-    )
-
+    <div className='flex justify-center h-auto mb-8 mx-auto w-[800px] bg-white border border-gray-200 rounded-lg shadow-md p-4 m-8'>
+      <Bar data={chartData} options={options} />
+    </div>
+  );
 };
 
-export default ChartComponent;
+export default ChartComponent2;
