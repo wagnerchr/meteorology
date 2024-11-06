@@ -1,6 +1,7 @@
 import ChartComponent from "@/components/ChartComponent";
 import ChartComponent2 from "@/components/ChartComponent2";
 import Header from "@/components/Header";
+import RealtimeComponent from "@/components/RealTimeComponent";
 import RegisterCard from "@/components/RegisterCard";
 import RegisterTable from "@/components/RegisterTable";
 
@@ -15,6 +16,8 @@ export default function Home() {
         <ChartComponent2 />
         </div>
         <RegisterTable />
+        <RealtimeComponent />
+        
       </div>
     </>
   );
